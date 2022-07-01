@@ -1,9 +1,9 @@
 import { PRODUCT_DATA } from "../data/product.data";
 import { Pagination, PaginationParams } from "../models/pagination.model";
-import { Product } from "../models/product.model";
+import { ProductUnion } from "../models/product.model";
 
 export class ProductService {
-  static get({ page, size }: PaginationParams): Pagination<Product> {
+  static get({ page, size }: PaginationParams): Pagination<ProductUnion> {
     const startIndex = (page - 1) * size;
     return {
       page,

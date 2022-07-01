@@ -1,4 +1,4 @@
-export interface Product {
+interface Product {
   id: string;
   title: string;
   price: number;
@@ -19,3 +19,11 @@ interface Quantity {
   step: number;
   max: number;
 }
+
+type ProductOutOfStock = Omit<Product, "quantity">;
+
+interface ProductReplaced extends ProductOutOfStock {
+  replacement: Product;
+}
+
+export type ProductUnion = Product | ProductReplaced | ProductOutOfStock;

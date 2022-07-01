@@ -1,7 +1,7 @@
-import { Product } from "../models/product.model";
+import { ProductUnion } from "../models/product.model";
 
 // https://fakestoreapi.com/products
-export const PRODUCT_DATA: Product[] = [
+export const PRODUCT_DATA: ProductUnion[] = [
   {
     id: "1",
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -34,7 +34,7 @@ export const PRODUCT_DATA: Product[] = [
       count: 259,
     },
     quantity: {
-      min: 1,
+      min: 4,
       step: 4,
       max: 1000,
     },
@@ -68,11 +68,6 @@ export const PRODUCT_DATA: Product[] = [
     rating: {
       rate: 2.1,
       count: 430,
-    },
-    quantity: {
-      min: 1,
-      step: 1,
-      max: 1000,
     },
   },
   {
@@ -362,10 +357,23 @@ export const PRODUCT_DATA: Product[] = [
       rate: 3.6,
       count: 145,
     },
-    quantity: {
-      min: 1,
-      step: 1,
-      max: 10,
+    replacement: {
+      id: "19",
+      title: "Opna Women's Short Sleeve Moisture",
+      price: 7.95,
+      description:
+        "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+      category: "women's clothing",
+      image: "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
+      rating: {
+        rate: 4.5,
+        count: 146,
+      },
+      quantity: {
+        min: 1,
+        step: 1,
+        max: 10,
+      },
     },
   },
 ];
