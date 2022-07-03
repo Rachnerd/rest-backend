@@ -2,7 +2,7 @@ import { PaginationParams } from "../models/pagination.model";
 
 export class PaginationParseException extends Error {}
 
-export class PaginationSerivce {
+export class PaginationService {
   static parseQueryParams({
     page: pageQuery,
     size: sizeQuery,
