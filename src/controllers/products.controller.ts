@@ -18,7 +18,8 @@ export class ProductsController {
   ): Promise<Pagination<ProductUnion>> {
     try {
       const paginationParams = PaginationService.parseQueryParams(query);
-      return ProductService.get(paginationParams);
+      const products = ProductService.get();
+      return PaginationService.paginate(paginationParams, products);
     } catch (error) {
       if (error instanceof PaginationParseException) {
         return reply.status(400).send(error);
