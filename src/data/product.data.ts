@@ -377,3 +377,17 @@ export const PRODUCT_DATA: ProductUnion[] = [
     },
   },
 ];
+
+export const PRODUCT_DATA_NORMALIZED = PRODUCT_DATA.reduce(
+  ({ byId, allIds }, product) => ({
+    byId: {
+      ...byId,
+      [product.id]: product,
+    },
+    allIds: [...allIds, product.id],
+  }),
+  { byId: {}, allIds: [] } as {
+    byId: { [id: string]: ProductUnion };
+    allIds: string[];
+  }
+);
