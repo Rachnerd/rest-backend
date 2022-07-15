@@ -13,6 +13,7 @@ server.addHook("onRequest", (request, reply, done) => {
 server.register(require("@fastify/cors"), {});
 
 server.get("/products", ProductsController.get);
+server.get("/products/:id", ProductsController.getById);
 
 server.get("/cart", CartController.get);
 server.post("/cart", CartController.post);

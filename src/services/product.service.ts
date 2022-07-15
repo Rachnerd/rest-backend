@@ -5,4 +5,8 @@ export class ProductService {
   static get(): ProductUnion[] {
     return PRODUCT_DATA;
   }
+
+  static getById(id: string): ProductUnion | undefined {
+    return PRODUCT_DATA.find((product) => product.id === id);
+  }
 }

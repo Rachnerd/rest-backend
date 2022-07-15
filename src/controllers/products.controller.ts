@@ -11,6 +11,10 @@ type ProductsRequest = FastifyRequest<{
   Querystring: Record<keyof PaginationParams, string>;
 }>;
 
+type ProductByIdRequest = FastifyRequest<{
+  Params: { id: string };
+}>;
+
 export class ProductsController {
   static async get(
     { query }: ProductsRequest,
@@ -27,5 +31,12 @@ export class ProductsController {
         return reply.status(500).send();
       }
     }
+  }
+
+  static async getById(
+    { params: { id } }: ProductByIdRequest,
+    reply: FastifyReply
+  ): Promise<ProductUnion> {
+    return ProductService.getById(id) ?? reply.status(404).send();
   }
 }
